@@ -1,0 +1,75 @@
+H:\>mkdir GitExercise
+
+H:\>cd GitExercise
+
+H:\GitExercise>git init
+
+H:\GitExercise>git remote add origin https://github.com/klinajay/training.git
+
+H:\GitExercise>git remote -v
+origin  https://github.com/klinajay/training.git (fetch)
+origin  https://github.com/klinajay/training.git (push)
+
+H:\GitExercise>git pull origin main
+From https://github.com/klinajay/training
+ * branch            main       -> FETCH_HEAD
+Updating files: 100% (2/2), done.
+
+H:\GitExercise>git checkout -b feature/git-test
+Switched to a new branch 'feature/git-test'
+
+H:\GitExercise>git switch main
+Switched to a new branch 'main'
+branch 'main' set up to track 'origin/main'.
+
+H:\GitExercise>git checkout -b feature/git-test2
+Switched to a new branch 'feature/git-test2'
+
+H:\GitExercise>git switch feature/git-test
+Switched to branch 'feature/git-test'
+
+H:\GitExercise>git add .
+
+H:\GitExercise>git commit -m "Changes made in git-test
+[feature/git-test 64e7f00] Changes made in git-test
+ 1 file changed, 1 insertion(+)
+
+H:\GitExercise>git push origin feature/git-test:main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 28 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 424 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/klinajay/training.git
+   3007f18..64e7f00  feature/git-test -> main
+
+H:\GitExercise>git switch feature/git-test2
+Switched to branch 'feature/git-test2'
+
+H:\GitExercise>git add .
+
+H:\GitExercise>git commit -m "changes made on feature/git-test2"
+[feature/git-test2 d51028a] changes made on feature/git-test2
+ 1 file changed, 1 insertion(+)
+
+H:\GitExercise>git merge feature/git-test
+Auto-merging code.txt
+CONFLICT (content): Merge conflict in code.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+H:\GitExercise>git add .
+
+H:\GitExercise>git commit -m "After merging the conflicts between code.txt"
+[feature/git-test2 705774f] After merging the conflicts between code.txt
+
+H:\GitExercise>git push origin feature/git-test2:main
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 28 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 695 bytes | 0 bytes/s, done.
+Total 6 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/klinajay/training.git
+   64e7f00..705774f  feature/git-test2 -> main
